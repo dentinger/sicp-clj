@@ -29,3 +29,34 @@
 (deftest test-cube-root-of1000
 	(testing "the value of the cube root of 1000 is 10 using cube-root-euler"
 (is (good-enough? 10.0 (cube-root-euler 1000)))))
+
+(deftest test-factorial-l-6
+(testing "the liner recursion impl of factorial computes 6! correctly"
+(is (= 720 (factorial-l 6)))))
+
+(deftest test-factorial-l-1
+(testing "the liner recursion impl of factorial computes 1! correctly"
+(is (= 1 (factorial-l 1)))))
+(deftest test-factorial-l-2
+(testing "the liner recursion impl of factorial computes 1! correctly"
+(is (= 2 (factorial-l 2)))))
+
+(deftest test-factorial-t-6
+(testing "the tail recursion impl of factorial computes 6! correctly"
+(is (= 720 (factorial-t 6)))))
+(deftest test-factorial-t-1
+(testing "the tail recursion impl of factorial computes 6! correctly"
+(is (= 1 (factorial-t 1)))))
+
+(deftest test-factorial-t-6
+(testing "the tail recursion impl of factorial computes 6! correctly"
+(is (= 720 (factorial-t 6)))))
+
+(deftest test-my-two-factorials-are-the-same
+(testing "that the two impls of factorial produce the same results"
+ (is (= (factorial-l 1) (factorial-t 1)))
+ (is (= (factorial-l 2) (factorial-t 2)))
+ (is (= (factorial-l 3) (factorial-t 3)))
+ (is (= (factorial-l 4) (factorial-t 4)))
+ ))
+ 

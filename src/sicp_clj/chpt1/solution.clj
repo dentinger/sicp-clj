@@ -10,7 +10,7 @@
 ;;; Exercise 1.7
 (defn sqrt2 [val]
   (defn good-enough? [old-guess new-guess] 	
-	(<  (/ ( Math/abs (- old-guess new-guess)) old-guess) 0.0001) )
+	(<  (/ ( Math/abs (- old-guess new-guess)) old-guess) 0.000001) )
   (defn improve [guess] 
 	(defn average [ a b] ( / (+ a b) 2))
 	(average guess (/ val guess)))
@@ -40,4 +40,15 @@
        )))	 
      (cube-iter 1.0)		
 	)
-
+;;;factorial impl #1
+(defn factorial-l [n]
+	(if (= n 1) 
+		1
+		(* n (factorial-l (- n 1)))))
+(defn factorial-t [n]
+	(defn fact-iter [product counter]
+		(if (> counter n) 
+			product
+			(fact-iter (* product counter)
+			           (+ counter 1))))
+	(fact-iter 1 1))
