@@ -52,3 +52,9 @@
 			(fact-iter (* product counter)
 			           (+ counter 1))))
 	(fact-iter 1 1))
+;;; impl of Ackermann's function Excercise 1.10
+(defn ackermann [ x y]
+	(cond (= y 0) 0
+		  (= x 0) (* 2 y)
+		  (= y 1) 2
+		   :else (ackermann (- x 1) (ackermann x (- y 1)))))

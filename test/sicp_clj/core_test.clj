@@ -59,4 +59,10 @@
  (is (= (factorial-l 3) (factorial-t 3)))
  (is (= (factorial-l 4) (factorial-t 4)))
  ))
- 
+ (deftest test-ackermann
+(testing "that the ackermann function is running correctly"
+(is (= 1024 (ackermann 1 10)))
+(is (= 65536 (ackermann 2 4)))
+(is (= 4 (ackermann 2 2)))
+(is (= 16 (ackermann 2 3)))
+))
