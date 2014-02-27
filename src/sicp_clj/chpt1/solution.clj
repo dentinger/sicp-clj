@@ -58,3 +58,11 @@
 		  (= x 0) (* 2 y)
 		  (= y 1) 2
 		   :else (ackermann (- x 1) (ackermann x (- y 1)))))
+(defn a-fn [n]
+	(ackermann 0 n))
+	
+(defn a-gn [n]
+	(ackermann 1 n))
+
+(defn a-hn [n]
+(ackermann 2 n))	
