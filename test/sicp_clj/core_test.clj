@@ -21,3 +21,11 @@
 (deftest test-sqrt2-self-check
 (testing "the value of two calls to sqrt2 are the same value"
 (is (= (sqrt2 144) (sqrt2 144)))))
+
+(deftest test-euler-cube-root-with-8 
+(testing "the value of the cube root of 8 is 2 using the euler-cube-root-method"
+(is (good-enough? 2 (cube-root-euler 8)))))
+
+(deftest test-cube-root-of1000
+	(testing "the value of the cube root of 1000 is 10 using cube-root-euler"
+(is (good-enough? 10.0 (cube-root-euler 1000)))))
