@@ -1,6 +1,6 @@
 # sicp-clj
 
-FIXME: description
+Clojure implementaiton of the exercises and solutions in the SICP book.  Each chapter has its' own soution space and unit tests. 
 
 ## Installation
 
@@ -8,13 +8,11 @@ Download from http://example.com/FIXME.
 
 ## Usage
 
-FIXME: explanation
 
     $ java -jar sicp-clj-0.1.0-standalone.jar [args]
 
 ## Options
 
-FIXME: listing of options this app accepts.
 
 ## Examples
 
@@ -22,15 +20,10 @@ FIXME: listing of options this app accepts.
 
 ### Bugs
 
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Dan Dentinger
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
