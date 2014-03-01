@@ -71,12 +71,13 @@
 	(defn dbl [x] (+ x x))
 	(let [ nums (range 20)]
 	(testing "that the f(n) = (A 0 n) is equal to 2* n "
-	(is (= 0 (compare (map dble nums) (map a-fn nums))))
+	(is (= (map dbl nums) (map a-fn nums)))
 	)))
 
 (deftest test-gn-ackermann1-10 
-	(testing "that the g(n) = (A 1 n) is working"
-(is (= 0 1))))
-(deftest test-hn-ackermann1-10 
-	(testing "that the h(n) = (A 2 n) is working"
-(is (= 0 1))))
+	(testing "that the g(n) = (A 1 n) is equal to 2^n where n > 0"
+(defn raise [x] (int (Math/pow 2 x)))
+(let [ nums (range 1 10)]
+(is (= (map raise nums) (map a-gn nums)))
+)))
+
