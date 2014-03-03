@@ -81,3 +81,28 @@
 (is (= (map raise nums) (map a-gn nums)))
 )))
 
+(deftest test-fib1-generalFibAssertions
+	(testing  "that the impl of fib using linear recursion is working"
+	(is (= 0 (fib1 0)))
+	(is (= 1 (fib1 1)))
+	(is (= 1 (fib1 2)))
+	(is (= 2 (fib1 3)))
+	(is (= 3 (fib1 4)))
+	(is (= 5 (fib1 5)))
+	(is (= 8 (fib1 6)))
+	(is (= 13 (fib1 7)))
+	(is (= 21 (fib1 8)))
+	))
+;;
+(deftest test-fib2-generalFibAssertions
+	(testing  "that the impl of fib using tail recursion is working"
+	(is (= 0 (fib2 0)))
+	(is (= 1 (fib2 1)))
+	(is (= 1 (fib2 2)))
+	(is (= 2 (fib2 3)))
+	(is (= 3 (fib2 4)))
+	(is (= 5 (fib2 5)))
+	(is (= 8 (fib2 6)))
+	(is (= 13 (fib2 7)))
+	(is (= 21 (fib2 8)))
+	))

@@ -66,3 +66,14 @@
 
 (defn a-hn [n]
 (ackermann 2 n))	
+;;;;  Tree Recusion Section 1.2.2
+(defn fib1 [x] 
+	(cond (= x 0) 0
+		  (= x 1) 1
+		  :else (+ (fib1 (- x 1)) (fib1 (- x 2)))))
+(defn fib2 [x]
+(defn fib-iter [a b count] 
+	(if (= count 0) 
+		b
+		(fib-iter (+ a b) a (- count 1))))
+		(fib-iter 1 0 x) )  
