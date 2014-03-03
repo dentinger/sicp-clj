@@ -77,3 +77,21 @@
 		b
 		(fib-iter (+ a b) a (- count 1))))
 		(fib-iter 1 0 x) )  
+			
+(defn count-change [amount]
+(defn first-denomination [kind-of-coins]
+		(cond (= kind-of-coins 1) 1
+			(= kind-of-coins 2) 5
+			(= kind-of-coins 3) 10
+	        (= kind-of-coins 4) 25
+			(= kind-of-coins 5) 50			
+			))
+(defn cc [amount kind-of-coins]
+	(cond (= amount 0) 1
+		(or (< amount 0) ( = kind-of-coins 0)) 0
+			:else (+ (cc amount (- kind-of-coins 1)) 
+				     (cc (- amount 
+						    (first-denomination kind-of-coins) )
+						  kind-of-coins))))
+
+	(cc amount 5))
