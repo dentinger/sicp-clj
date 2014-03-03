@@ -106,3 +106,16 @@
 	(is (= 13 (fib2 7)))
 	(is (= 21 (fib2 8)))
 	))
+;;testing exercise 1.11
+(deftest test-linear-recur1_11-base-condition
+	(testing "that the linear recur version of 1.11 works properly for the base condition of n < 3"
+	(is (= 1 (f1_11lr 1)))
+	(is (= 2 (f1_11lr 2)))
+	(is (= 0 (f1_11lr 0)))
+	))
+(deftest test-linear-recur1_11-second-condition
+	(testing "that the linear recur version of 1.11 works properly for the base condition of n < 3"
+	(is (= 4 (f1_11lr 3)))
+	(is (= 11 (f1_11lr 4)))
+		
+))

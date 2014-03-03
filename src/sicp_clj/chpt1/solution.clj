@@ -95,3 +95,25 @@
 						  kind-of-coins))))
 
 	(cc amount 5))
+;;; Exercise 1.11 f(n) = { {n <3: n; n>= 3: (f(n-1) + 2f(n-2) + 3f(n-3))}}
+(defn f1_11lr [n]
+	(if (< n 3) n
+		(+ (f1_11lr (- n 1)) 
+		   (* 2 (f1_11lr (- n 2)))
+		   (* 3 (f1_11lr (- n 3)))
+		   ))
+	)
+;;; use a handfull of variables in an internal iter to turn tree recusrions in to tail recursion.  Will need a n, n1, n2, n3 and counter I think.	
+(defn f1_11itr [n]
+	(defn fn-iter [n n1 n2 n3 counter]
+		;;;(println (str "n: " n " n1: " n1 " n2: " n2 " n3: " n3 " counter: " counter))	
+		(cond (< counter 3 ) n
+			:else 
+				(fn-iter 
+				(+ n (* 2 n1) (* 3 n2))
+				 n n1 n2
+				 (- counter 1) )
+				 ))
+		(if (< n 3) n 
+			(fn-iter 2 1 0 0 n))
+	)
