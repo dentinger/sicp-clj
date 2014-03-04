@@ -114,8 +114,25 @@
 	(is (= 0 (f1_11lr 0)))
 	))
 (deftest test-linear-recur1_11-second-condition
-	(testing "that the linear recur version of 1.11 works properly for the base condition of n < 3"
+	(testing "that the linear recur version of 1.11 works properly for the base condition of n > 3"
 	(is (= 4 (f1_11lr 3)))
 	(is (= 11 (f1_11lr 4)))
 		
+))
+(deftest test-tail-recur1_11-base-condition
+	(testing "that the linear recur version of 1.11 works properly for the base condition of n < 3"
+	(is (= 1 (f1_11itr 1)))
+	(is (= 2 (f1_11itr 2)))
+	(is (= 0 (f1_11itr 0)))
+	))
+(deftest test-tail-recur1_11-second-condition
+	(testing "that the linear recur version of 1.11 works properly for the base condition of n > 3"
+	(is (= 4 (f1_11itr 3)))
+	(is (= 11 (f1_11itr 4)))	
+))
+(deftest test-tail-recur1_11-two_versions_equality
+	(defn eqlChk [x] (is (= (f1_11itr x) (f1_11lr x))))
+	(testing "that the linear recur version of 1.11 works properly "
+	(is (= (map f1_11itr (range 0 25))  (map f1_11lr (range 0 25))))
+	
 ))
