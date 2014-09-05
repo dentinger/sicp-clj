@@ -4,7 +4,6 @@ Clojure implementaiton of the exercises and solutions in the SICP book.  Each ch
 
 ## Installation
 
-Download from http://example.com/FIXME.
 
 ## Usage
 
