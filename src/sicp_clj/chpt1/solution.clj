@@ -4,9 +4,7 @@
 
 (defn good-enough? [guess x] 	
 	(<  ( Math/abs (- guess x)) 0.000001) )
-	 
-
-
+	
 ;;; Exercise 1.7
 (defn sqrt2 [val]
   (defn good-enough? [old-guess new-guess] 	
@@ -79,22 +77,22 @@
 		(fib-iter 1 0 x) )  
 			
 (defn count-change [amount]
-(defn first-denomination [kind-of-coins]
-		(cond (= kind-of-coins 1) 1
-			(= kind-of-coins 2) 5
-			(= kind-of-coins 3) 10
-	        (= kind-of-coins 4) 25
-			(= kind-of-coins 5) 50			
-			))
-(defn cc [amount kind-of-coins]
-	(cond (= amount 0) 1
-		(or (< amount 0) ( = kind-of-coins 0)) 0
-			:else (+ (cc amount (- kind-of-coins 1)) 
-				     (cc (- amount 
-						    (first-denomination kind-of-coins) )
-						  kind-of-coins))))
-
-	(cc amount 5))
+	(defn first-denomination [kind-of-coins]
+			(cond (= kind-of-coins 1) 1
+				(= kind-of-coins 2) 5
+				(= kind-of-coins 3) 10
+		        (= kind-of-coins 4) 25
+				(= kind-of-coins 5) 50			
+				))
+	(defn cc [amount kind-of-coins]
+		(cond (= amount 0) 1
+			(or (< amount 0) ( = kind-of-coins 0)) 0
+				:else (+ (cc amount (- kind-of-coins 1)) 
+					     (cc (- amount 
+							    (first-denomination kind-of-coins) )
+							  kind-of-coins))))
+	
+		(cc amount 5))
 ;;; Exercise 1.11 f(n) = { {n <3: n; n>= 3: (f(n-1) + 2f(n-2) + 3f(n-3))}}
 (defn f1_11lr [n]
 	(if (< n 3) n
@@ -103,7 +101,8 @@
 		   (* 3 (f1_11lr (- n 3)))
 		   ))
 	)
-;;; use a handfull of variables in an internal iter to turn tree recusrions in to tail recursion.  Will need a n, n1, n2, n3 and counter I think.	
+;;; use a handfull of variables in an internal iter to turn tree recusrions in to tail recursion.  
+;;; Will need a n, n1, n2, n3 and counter I think.	
 (defn f1_11itr [n]
 	(defn fn-iter [n n1 n2 n3 counter]
 		;;;(println (str "n: " n " n1: " n1 " n2: " n2 " n3: " n3 " counter: " counter))	
@@ -116,4 +115,31 @@
 				 ))
 		(if (< n 3) n 
 			(fn-iter 2 1 0 0 n))
-	)
+)
+
+;;; exercise 1.12 implement a procedure that computes Pascal's triangle recurisvly
+(defn pascal-triangle [level]
+	(defn calc-col [row length position]
+		(cond (= position 0) 1
+			   (= position length ) 1
+				:else (+ (nth row position) (nth row (- position 1))))
+		)
+  (defn calr [row] 
+	  (let 
+		  [[rowlen newrow] [(count row) [] ]] 
+		(loop [rl rowlen n 0 nr newrow] 
+    (if (> 0 rl) nr
+        (recur (- rl 1) (+ n 1) (conj nr (calc-col row rowlen n))) 
+				 ))
+     ))  
+
+  (defn pt-iter [triangle level counter]
+	(cond 
+   (= level counter) triangle 
+   		:else (pt-iter
+             (conj triangle (calr (last triangle)))
+			level (+ counter 1))
+		))
+	(pt-iter [[1]] level 1)
+ 
+)
